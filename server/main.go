@@ -20,7 +20,7 @@ func main() {
 
 	// TODO: https://github.com/guard/guard/blob/19351271941a3362a47176c6808ddcb4a675e3ad/lib/guard/notifiers/notifysend.rb#L15
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		log.Println("Handling request")
+		// log.Println("Handling request")
 
 		// parse request with maximum memory of _5Megabits
 		if strings.HasPrefix(r.Header.Get("Content-Type"), "multipart/form-data;") {
@@ -72,9 +72,9 @@ func main() {
 			}
 		}
 
-		msg := "`notify-send` should have been triggered"
-		fmt.Fprintln(w, msg)
-		log.Println(msg)
+		// msg := "`notify-send` should have been triggered"
+		// fmt.Fprintln(w, msg)
+		// log.Println(msg)
 		notifySend(summary, body, iconPath, timeout)
 	})
 	http.HandleFunc("/favicon.ico", func(w http.ResponseWriter, r *http.Request) {
