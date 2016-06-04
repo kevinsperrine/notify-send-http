@@ -16,6 +16,6 @@ curl -sL https://github.com/fgrehm/notify-send-http/releases/download/v0.2.1/cli
 sudo chmod +x /usr/bin/notify-send
 
 cat <<-STR >> /home/vagrant/.bashrc
-SERVER_IP=\$(ip route|awk '/default/ { print \$3 }')
+SERVER_IP=\$(/sbin/ip route|awk '/default/ { print \$3 }')
 export NOTIFY_SEND_URL="http://\${SERVER_IP}:${NOTIFY_PORT}"
 STR
